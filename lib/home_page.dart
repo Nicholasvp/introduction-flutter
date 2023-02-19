@@ -24,11 +24,18 @@ class HomePage extends StatelessWidget {
       ),
       drawer: Drawer(),
       body: Container(
+        margin: EdgeInsets.all(30.0),
+        alignment: Alignment.center,
         width: 200,
         height: 200,
-        color: Colors.red,
+        color: Color.fromARGB(255, 195, 84, 76),
         child: Center(
-          child: Text('teste'),
+          child: TextField(
+            decoration: InputDecoration(
+              border: OutlineInputBorder(),
+              hintText: 'Email',
+            ),
+          ),
         ),
       ),
     );
