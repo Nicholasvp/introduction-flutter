@@ -1,56 +1,35 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_application_1/home_controller.dart';
+import 'package:flutter/src/widgets/framework.dart';
+import 'package:flutter/src/widgets/placeholder.dart';
 
-// class HomePage extends StatelessWidget {
-//   const HomePage({super.key});
-
-//   @override
-//   Widget build(BuildContext context) {
-//     var controller = HomeController.of(context);
-
-//     return Scaffold(
-//       appBar: AppBar(
-//         title: const Text('Home'),
-//       ),
-//       body: Center(
-//         child: Text('Contando ${controller.value}'),
-//       ),
-//       floatingActionButton: FloatingActionButton(
-//         child: const Icon(Icons.add),
-//         onPressed: () {
-//           controller.increment();
-//         },
-//       ),
-//     );
-//   }
-// }
-
-class HomePage extends StatefulWidget {
-  const HomePage({super.key});
+class MyHomePage extends StatefulWidget {
+  const MyHomePage({super.key});
 
   @override
-  State<HomePage> createState() => _HomePageState();
+  State<MyHomePage> createState() => _MyHomePageState();
 }
 
-class _HomePageState extends State<HomePage> {
-  var counter = 0;
-
+class _MyHomePageState extends State<MyHomePage> {
   @override
   Widget build(BuildContext context) {
+    final names = ['Alberto', 'Bianca', 'Cleyton'];
+
     return Scaffold(
       appBar: AppBar(
         title: const Text('Home'),
       ),
-      body: Center(
-        child: Text('Contando $counter'),
-      ),
-      floatingActionButton: FloatingActionButton(
-        child: const Icon(Icons.add),
-        onPressed: () {
-          setState(() {
-            counter++;
-          });
-        },
+      body: SizedBox(
+        width: double.infinity,
+        height: double.infinity,
+        child: ListView.builder(
+          itemCount: names.length,
+          itemBuilder: (context, index) {
+            final name = names[index];
+            return ListTile(
+              title: Text(name),
+            );
+          },
+        ),
       ),
     );
   }
